@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual ICU: AI-Driven Early Warning System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-value {
+            font-weight: 900;
+            font-size: 4rem;
+            line-height: 1;
+        }
+        .flowchart-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .arrow {
+            font-size: 2rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-[#003f5c] mb-2">Virtual ICU</h1>
+            <p class="text-xl md:text-2xl font-semibold text-[#58508d]">An AI-Powered Revolution in Critical Care Monitoring</p>
+        </header>
+
+        <main>
+            <section id="challenge" class="mb-16">
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center text-[#003f5c] mb-6">The Critical Challenge in Modern ICUs</h2>
+                    <p class="text-lg text-center max-w-3xl mx-auto mb-8">Intensive Care Units are data-rich environments, but this data overload creates significant challenges. Clinicians face a constant barrage of information, leading to alarm fatigue, delayed interventions, and a critical gap between data availability and effective, trusted application.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-[#bc5090] mb-2">1.5%</h3>
+                            <p class="font-semibold">Increase in mortality risk for each hour of delay in ICU admission for sepsis patients.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-[#ff6361] mb-2">Data Overload</h3>
+                            <p class="font-semibold">Providers are overwhelmed, making it difficult to identify critical patient information quickly.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-[#ffa600] mb-2">Alarm Fatigue</h3>
+                            <p class="font-semibold">High rates of false alarms desensitize staff, leading to missed critical alerts.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="mb-16">
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center text-[#003f5c] mb-6">The Virtual ICU Solution: A Proactive System of Rescue</h2>
+                    <p class="text-lg text-center max-w-3xl mx-auto mb-8">Virtual ICU transforms the reactive "failure to rescue" model into a proactive system. By integrating AI with validated clinical scores, it provides real-time risk assessments and actionable alerts, turning data into life-saving insights.</p>
+                    <div class="w-full max-w-4xl mx-auto">
+                        <div class="chart-container h-96 md:h-[450px]">
+                            <canvas id="systemComparisonChart"></canvas>
+                        </div>
+                    </div>
+                     <p class="text-center mt-4 text-sm text-gray-600">The chart above compares the capabilities of traditional monitoring systems against the AI-driven approach of Virtual ICU, highlighting its superiority in prediction, transparency, and training.</p>
+                </div>
+            </section>
+            
+            <section id="workflow" class="mb-16">
+                 <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center text-[#003f5c] mb-8">System Architecture & Workflow</h2>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center">
+                        <div class="flowchart-step bg-[#003f5c] text-white p-4 rounded-lg w-full md:w-1/4">
+                            <h3 class="font-bold">1. Data Generation</h3>
+                            <p class="text-sm">A continuous stream of synthetic vital signs is generated, mimicking real-time patient data safely.</p>
+                        </div>
+                        <div class="arrow text-[#58508d] transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="flowchart-step bg-[#58508d] text-white p-4 rounded-lg w-full md:w-1/4">
+                            <h3 class="font-bold">2. Prediction Engine</h3>
+                            <p class="text-sm">The system computes clinical scores (NEWS2, qSOFA) and feeds them into an AI model for risk analysis.</p>
+                        </div>
+                        <div class="arrow text-[#bc5090] transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="flowchart-step bg-[#bc5090] text-white p-4 rounded-lg w-full md:w-1/4">
+                            <h3 class="font-bold">3. Dashboard & Alerts</h3>
+                            <p class="text-sm">Real-time alerts and recommendations are displayed on an interactive dashboard for clinicians.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-center text-[#003f5c] mb-4">The "Invigilator Control Panel"</h3>
+                        <p class="text-center mb-6">A unique feature for building trust and transparency. Evaluators can manipulate live data to see the AI's immediate response, turning the "black box" of AI into a clear, interactive tool.</p>
+                        <div class="chart-container h-72">
+                            <canvas id="invigilatorEffectChart"></canvas>
+                        </div>
+                        <p class="text-center mt-4 text-sm text-gray-600">This demonstrates how a manually increased Respiratory Rate directly impacts the patient's risk score in real-time.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-center text-[#003f5c] mb-4">Impact & Applications</h3>
+                         <p class="text-center mb-6">Virtual ICU's impact extends beyond the bedside, offering powerful applications in medical training, research, and overall healthcare system resilience.</p>
+                        <div class="chart-container h-72">
+                            <canvas id="applicationsChart"></canvas>
+                        </div>
+                        <p class="text-center mt-4 text-sm text-gray-600">The platform's benefits are distributed across clinical practice, education, and research, creating a comprehensive ecosystem for innovation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center mt-12 py-6 border-t border-gray-300">
+                <p class="text-gray-600">This infographic summarizes the key findings and innovations of the "Virtual ICU" research paper.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function wrapLabels(label) {
+            const maxLen = 16;
+            if (label.length <= maxLen) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLen) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const brilliantBluesPalette = {
+            background: 'rgba(0, 63, 92, 0.2)',
+            border: '#003f5c',
+            secondaryBg: 'rgba(91, 80, 141, 0.2)',
+            secondaryBorder: '#58508d',
+            tertiaryBg: 'rgba(188, 80, 144, 0.2)',
+            tertiaryBorder: '#bc5090',
+            accent1: '#ff6361',
+            accent2: '#ffa600',
+        };
+
+        const ctxComparison = document.getElementById('systemComparisonChart').getContext('2d');
+        new Chart(ctxComparison, {
+            type: 'bar',
+            data: {
+                labels: ['Real-time Prediction', 'Data Transparency', 'Training Capability', 'Proactive Alerting', 'Privacy-Safe Simulation'],
+                datasets: [{
+                    label: 'Traditional Systems',
+                    data: [1, 3, 0, 2, 0],
+                    backgroundColor: brilliantBluesPalette.secondaryBg,
+                    borderColor: brilliantBluesPalette.secondaryBorder,
+                    borderWidth: 2
+                }, {
+                    label: 'Virtual ICU',
+                    data: [5, 5, 5, 5, 5],
+                    backgroundColor: brilliantBluesPalette.background,
+                    borderColor: brilliantBluesPalette.border,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            stepSize: 1,
+                            callback: function(value) {
+                                const labels = ['None', 'Low', 'Medium', 'High', '', 'Excellent'];
+                                return labels[value];
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Feature Comparison: Traditional Systems vs. Virtual ICU',
+                        font: { size: 16 }
+                    },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+
+        const ctxInvigilator = document.getElementById('invigilatorEffectChart').getContext('2d');
+        new Chart(ctxInvigilator, {
+            type: 'line',
+            data: {
+                labels: ['-10s', '-8s', '-6s', '-4s', '-2s', 'Now', '+2s', '+4s'],
+                datasets: [{
+                    label: 'Patient Risk Score',
+                    data: [15, 18, 20, 22, 25, 75, 76, 78],
+                    borderColor: brilliantBluesPalette.accent1,
+                    backgroundColor: 'rgba(255, 99, 97, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: 'Risk Score (%)' }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Real-Time Risk Score Response',
+                        font: { size: 16 }
+                    },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } },
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                xMin: 'Now',
+                                xMax: 'Now',
+                                borderColor: brilliantBluesPalette.border,
+                                borderWidth: 2,
+                                label: {
+                                    content: 'Manual Data Change',
+                                    enabled: true,
+                                    position: 'start'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctxApplications = document.getElementById('applicationsChart').getContext('2d');
+        new Chart(ctxApplications, {
+            type: 'doughnut',
+            data: {
+                labels: ['Clinical Decision Support', 'Medical Education & Training', 'AI Model Research & Prototyping'],
+                datasets: [{
+                    data: [45, 35, 20],
+                    backgroundColor: [brilliantBluesPalette.border, brilliantBluesPalette.secondaryBorder, brilliantBluesPalette.tertiaryBorder],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribution of Platform Applications',
+                        font: { size: 16 }
+                    },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
