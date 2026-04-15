@@ -336,48 +336,6 @@ For questions or issues:
 **Status:** Production Ready
 **ML Framework:** XGBoost (Gradient Boosting)
 ```
-
----
-
-## GitHub Topic Tags (Suggested)
-
-Add these topics to your GitHub repository:
-
-- `machine-learning`
-- `gradient-boosting`
-- `xgboost`
-- `healthcare`
-- `patient-monitoring`
-- `icu`
-- `disease-prediction`
-- `streamlit`
-- `medical-ai`
-- `clinical-decision-support`
-- `sepsis-detection`
-- `cardiac-arrest`
-- `respiratory-failure`
-- `python`
-- `data-science`
-
----
-
-## GitHub Repository Settings
-
-### Recommended Configuration
-
-**About Section:**
-- **Description:** AI-powered Virtual ICU Monitor for real-time patient disease prediction using Gradient Boosting. 95%+ accuracy sepsis, cardiac arrest, respiratory failure detection.
-- **Website:** (Leave blank or add your docs site)
-- **Topics:** machine-learning, healthcare, gradient-boosting, xgboost, streamlit, patient-monitoring
-- **Include:** Releases, Packages, Discussions, Sponsorships (as applicable)
-
----
-
-## Use These Badges in README
-
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![ML: XGBoost](https://img.shields.io/badge/ML-XGBoost-brightgreen.svg)](https://github.com/dmlc/xgboost)
 [![Framework: Streamlit](https://img.shields.io/badge/Framework-Streamlit-FF0000.svg)](https://streamlit.io)
 [![Accuracy: 95%+](https://img.shields.io/badge/Accuracy-95%25%2B-green.svg)](#performance-metrics)
 - Streamlit
